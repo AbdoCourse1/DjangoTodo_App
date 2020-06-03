@@ -1,0 +1,24 @@
+{% extends 'base2.html' %}
+{% block title %} homepage {% endblock %}
+{% block content %}
+	{% if item %}
+ <form class="form-inline my-2 my-lg-0" method ="POST">
+    	{% csrf_token %}
+    	 <input class="form-control mr-sm-2" type="search" placeholder="{{item.itemDate}}"
+      value ="{{item.itemDate}}" aria-label="Search" name ="itemDate">
+      
+      <input class="form-control mr-sm-2" type="search" placeholder="{{item.item}}"
+      value ="{{item.item}}" aria-label="Search" name ="item">
+     
+      <input type="hidden" value="{{item.completed}}" name="completed">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Save</button>
+      &nbsp
+		<a class="btn btn-outline-dark" href="{% url 'home' %}" role="button">Cancel</a>
+
+
+    </form>
+
+		
+	{% endif %}
+
+{% endblock %}
